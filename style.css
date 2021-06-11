@@ -1,0 +1,13 @@
+body{
+	background-color:#241e1e;
+}
+#h1 {
+	color:white;
+	text-align:center;
+	font-style:italic;
+	font-size:50px;
+	background-color:#5249495c;
+	border-radius:20px 20px 20px 20px;
+	height:100%;
+}
+	

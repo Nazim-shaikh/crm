@@ -1,0 +1,56 @@
+<html>
+<title>CRM</title>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<center>
+<div id="h1">
+<h1>AZAM CRM</h1>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '217433503544804',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v11.0'
+    });
+      FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+   
+   function statusChangeCallback(response){
+   if(response.status==='connected'){
+   console.log('login');
+   }else{
+   console.log('login fail');
+    } 
+   }
+   
+   function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+</script>
+
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+</div>
+</center>
+</body>
+</html>
