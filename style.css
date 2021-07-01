@@ -10,4 +10,15 @@ body{
 	border-radius:20px 20px 20px 20px;
 	height:100%;
 }
-	
+ 
+.data{
+	display: none;
+}
+
+.g-signin2{
+	position: absolute;
+	top: 50%;
+	left:50%;
+	margin-top: -50%;
+	margin-left: -50%;
+}
