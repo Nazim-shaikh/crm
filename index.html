@@ -11,57 +11,40 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1  class="alert alert-primary" style="color:white">AZAM CRM</h1>
+  <h1 style="color:white">AZAM CRM</h1>
+<br>
+<form action="connect.php" method="POST">
+<caption style="color: rgba(210, 219, 215, 0.671);">First Name: </caption><input type="text" id="first name"><br>
+<caption style="color: rgba(210, 219, 215, 0.671);">Last Name: </caption><input type="text" id="last name"><br>
+<caption style="color: rgba(210, 219, 215, 0.671);">Email Id: &nbsp; </caption><input type="text" id="Email id"><br>
+</form>
+   </center>
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
  <div class="data">
    <p>Name</p>
    <p id="name" class="alert alert-success"></p>
    <button type="button" class="btn btn-danger" onclick="signOut();">Sign Out</button>
  </div>
- <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '217433503544804',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v11.0'
-    });
-      FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-});
-      
-  };
+   
+     <script>
+       function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    $("#name").text(profile.getName());
+    $("#email").text(profile.getEmail());
+    $("#image").attr(src, profile.getImageurl());
+    $(".data").css("display", "block");
+    $(".g-signin2").css("display", "none");
+  }
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-   
-   function statusChangeCallback(response){
-   if(response.status==='connected'){
-   console.log('login');
-   }else{
-   console.log('login fail');
-    } 
-   }
-   
-   function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
+  function signOut() {
+var auth2 = gapi.auth2.getAuthInstance();
+auth2.signOut().then(function () {
+  alert("you sign out succesfull");
+  $(".g-signin2").css("display", "block");
+  $(".data").css("display", "none");
+});
 }
-</script>
-  <center>
-<fb:login-button 
-  scope="public_profile,email"
-  onlogin="checkLoginState();">
-</fb:login-button>
-<br>
-    <br>
-     <script src="main.js"></script>
+     </script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>
