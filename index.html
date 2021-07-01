@@ -64,7 +64,7 @@
 <br>
     <br>
     </center>
-  <div class="g-signin2" data-onsuccess="onSignIn" ></div>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
  <div class="data">
    <p>Name</p>
    <p id="name" class="alert alert-success"></p>
@@ -75,17 +75,16 @@
        function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     $("#name").text(profile.getName());
-   
-});
+    
   }
 
   function signOut() {
 var auth2 = gapi.auth2.getAuthInstance();
 auth2.signOut().then(function () {
   alert("you sign out succesfull");
-  $(".g-signin2").css("display","block");
-  $(".data").css("display","none");
- 
+  $(".g-signin2").css("display", "block");
+  $(".data").css("display", "none");
+});
 }
      </script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
