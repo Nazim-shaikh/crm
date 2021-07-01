@@ -1,13 +1,21 @@
 <html>
 <title>CRM</title>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="1076257061777-1n1mni48nm01rim8lejcvqh1d1n6km18.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <center>
-<div id="h1">
-<h1>AZAM CRM</h1>
+<h1 style="color:white">AZAM CRM</h1>
+   </center>
 
 <script>
   window.fbAsyncInit = function() {
@@ -45,12 +53,31 @@
   });
 }
 </script>
-
+  <center>
 <fb:login-button 
   scope="public_profile,email"
   onlogin="checkLoginState();">
 </fb:login-button>
-</div>
-</center>
+<br>
+    <br>
+  
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+    </script>
+  </center>
 </body>
 </html>
