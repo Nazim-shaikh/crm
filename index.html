@@ -65,6 +65,7 @@
    <p id="name" class="alert alert-success"></p>
    <p style="color: darkgray;">email:</p>
    <p id="email" class="alert alert-success"></p>
+   <img id="image" class="rounded-cicle" height="100" width="100" />
    <button type="button" class="btn btn-danger" onclick="signOut();">Sign Out</button>
  </div>
    
@@ -73,6 +74,7 @@
     var profile = googleUser.getBasicProfile();
     $("#name").text(profile.getName());
     $("#email").text(profile.getEmail());
+    $("#image").attr('src',profile.getImageUrl());
     $(".g-signin2").css("display", "none");
   $(".data").css("display", "block");
   }
